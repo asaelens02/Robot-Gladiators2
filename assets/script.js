@@ -70,6 +70,8 @@ var fight = function (enemyName) {
 
         window.alert(enemyName + " has died! ");
 
+        playerMoney = playerMoney + 20;
+
         break;
     }
     else {
@@ -85,22 +87,7 @@ var fight = function (enemyName) {
     else {
         window.alert(playerName + " still has " + playerHealth + " health left.");
     }
-
-    //if no (false), ask question again by running fight () again
-
-    else {
-
-        fight();
-    }
-
-    // window.alert(playerName + " has chosen to skip the fight!");
-    
-} else {
-
-    window.alert ("You need to choose a valid option, try again!");
-}
-}
-}
+    }}
 
 
 for (var i=0; i<enemyNames.length; i++) {
