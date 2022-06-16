@@ -111,6 +111,15 @@ var startGame = function () {
 
         fight(pickedEnemyName);
 
+       if (playerHealth >0 && i < enemyNames.length-1){
+
+        var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
+
+        if (storeConfirm){
+
+            shop();
+        }
+
     }
         else {
 
@@ -119,9 +128,9 @@ var startGame = function () {
             break;
         }
 
-    }
-
     endGame();
+        }
+    }
 
 
 };
@@ -155,17 +164,70 @@ var endGame=function() {
 
 };
 
+var shop = function () {
+
+    var shopOptionPrompt = window.prompt("Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice");
+
+    switch (shopOptionPrompt){
+
+        case "REFILL"://new case
+
+        case "refill":
+
+            if (playerMoney>=7){
+
+            window.alert("Refilling player's helath by 20 for 7 dollars");
+
+            playerHealth = playerHealth + 20;
+
+            playerMoney = playerMoney -7;
+
+            }
+            else {
+                window.alert("you don't have enough money");
+
+            }
+            break;
+
+        case "UPGRADE": //new case
+
+        case "upgrade":
+
+            if (playerMoney >=7){
+
+            window.alert("Upgrading player's attack by 6 for 7 dollars");
+
+            playerAttack = playerAttack + 6;
+
+            playerMoney = playerMoney -7;
+
+            }
+            else {
+
+                window.alert("you don't have enough money")
+            }
+
+             break;
+
+        case "LEAVE": //new case
+
+        case "leave":
+
+            window.alert ("Leaving the store");
+
+            break;
+
+        default: 
+            window.alert ("You did not choose a valid option. Try again.")
+
+        shop();
+
+        break;
+
+    }
+
+
+};
+
 startGame();
-
-
-
-//Game states
-
-//"win" - player robot has defeated all enemy-robots
-
-// * fight all enemy robots
-// * defeat each enemy robot
-
-//"lose" - player robot's health is zero or less
-
 
